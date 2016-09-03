@@ -20,9 +20,7 @@ jQuery(function($) {
           $count=totalCounter;
           $('a#btn-next').attr('href','javascript:;');
           $('a#btn-prev').attr('href','javascript:;');
-          $('mark:first').css({"background":"yellow"});
           return true;
-      
     }
 };
     options["className"] ="search-found";
@@ -32,22 +30,16 @@ jQuery(function($) {
   });
   //$button.trigger("click.perform");
 
-  $('a#btn-next').on('click',$i=1,function(){
-    
+  $('a#btn-next').on('click',$i=0,function(){ 
     if($i <= $count){
-      
       $('mark').eq($i).attr('id', 'term-'+$i);
       $('mark').eq($i).css({"background":"yellow"});
       console.log($i);
       $i++;
-    }
-
-      
+    } 
   });
     $('a#btn-prev').on('click',$i=$count,function(){
-      
-      if($i>=0){
-        
+      if($i>=0){ 
            $('mark').eq($i).attr('id', 'term-'+$i);
           $('mark').eq($i).css({"background":"orange"});
           console.log($i);
