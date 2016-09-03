@@ -1,4 +1,9 @@
+
 jQuery(function($) {
+
+  var $terms=[];
+  var $count=0;
+  var $i=0;
   var $context = $("main");
   var $form = $(".searchTermForm");
   var $button = $form.find("button[name='perform']");
@@ -7,20 +12,34 @@ jQuery(function($) {
     var searchTerm = $input.val();
     var options = {};
     var values = $form.serializeArray();
-    options["className"] ="search-found";
+   
     $context.unmark();
-//     var options = {
-//     "filter": function(node, term, totalCounter, counter){
-//         if( counter >= 1){
-//             return false;
-//         } else {
-//             return true;
-//         }
-//     }
-// };
+
+    var options = {
+    "filter": function(node, term, totalCounter, counter){
+          $('a#btn-next').attr('href','javascript:;');
+          $('a#btn-prev').attr('href','javascript:;');
+          $('mark:first').css({"background":"yellow"});
+          return true;
+      
+    }
+};
+    options["className"] ="search-found";
+    
     $context.mark(searchTerm, options);
 
   });
-  $button.trigger("click.perform");
+  //$button.trigger("click.perform");
+
+  $('a#btn-next').on('click',$i=1,function(){
+    if($i == 1){
+
+    }
+      $('mark').eq($i).attr('id', 'term-'+$i);
+      $('mark').eq($i).css({"background":"yellow"});
+      console.log($i);
+      $i++;
+      
+  });
 
 });

@@ -19,8 +19,8 @@
 		            <input type="text" class="form-control input-sm" placeholder="Type your term" value="" name="keyword" id="keyword">
 		          </div>
 		        <button type="button" class="btn btn-default btn-sm" name="perform">Perform</button>
-		        <button type="button" class="btn btn-default btn-sm" name="next">Next</button>
-		        <button type="button" class="btn btn-default btn-sm" name="prev">Previous</button>
+		        <a id="btn-next" class="btn btn-default btn-sm" name="next">Next</a>
+		        <a id="btn-prev" class="btn btn-default btn-sm" name="prev">Previous</a>
 		        </div>
 
 		      </form>
