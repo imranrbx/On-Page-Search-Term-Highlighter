@@ -1,4 +1,3 @@
-
 .container {
   margin-right: auto;
   margin-left: auto;
@@ -1956,7 +1955,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 .top-header {
   position: -webkit-sticky;
-  top: 0;
+  top: 40px;
   z-index: 1;
 }
  .highlight{ background: #D3E18A; }

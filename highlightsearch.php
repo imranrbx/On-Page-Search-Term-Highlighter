@@ -18,12 +18,8 @@
 		            <label for="keyword">Search term:</label>
 		            <input type="text"  class="form-control input-sm" placeholder="Type your term" value="" name="keyword" id="keyword">
 		          </div>
-		        
 		        <input type="submit" class="btn btn-default btn-sm" name="perform" value="Search" />
-		     <!--    <a id="btn-next" class="btn btn-default btn-sm" name="next">Next</a>
-		        <a id="btn-prev" class="btn btn-default btn-sm" name="prev">Previous</a> -->
 		        </div>
-
 		      </form>
 		    </div>
 		  </div>
