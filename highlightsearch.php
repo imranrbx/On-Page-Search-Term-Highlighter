@@ -18,7 +18,8 @@
 		            <label for="keyword">Search term:</label>
 		            <input type="text"  class="form-control input-sm" placeholder="Type your term" value="" name="keyword" id="keyword">
 		          </div>
-		        <button type="submit" class="btn btn-default btn-sm" name="perform">Perform</button>
+		        
+		        <input type="submit" class="btn btn-default btn-sm" name="perform" value="Search" />
 		     <!--    <a id="btn-next" class="btn btn-default btn-sm" name="next">Next</a>
 		        <a id="btn-prev" class="btn btn-default btn-sm" name="prev">Previous</a> -->
 		        </div>
@@ -31,6 +32,9 @@
 	}
 	function xs__enqueue_scripts(){
 		//wp_enqueue_script( 'mark-js-script','https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.0.1/jquery.mark.es6.js', array('jquery'), '1.8', true );
+		wp_deregister_script('jquery' );
+		wp_dequeue_script('jquery' );
+		wp_enqueue_script('jquery','https://code.jquery.com/jquery-1.12.4.min.js',array(),'1.12.1',true );
 		wp_enqueue_script( 'highlight-js',plugins_url().'/highlightsearch/js/highlight.js', array('jquery'), '1.8', true );
 		wp_enqueue_script( 'highlight-custom', plugins_url().'/highlightsearch/js/custom_script.js', array('highlight-js'), '1.0', true);
 		wp_enqueue_style("custom-plugin-style", plugins_url( ).'/highlightsearch/css/style.css' );

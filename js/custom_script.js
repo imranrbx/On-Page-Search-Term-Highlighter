@@ -15,7 +15,6 @@ function searchPrompt(searchterm) {
   }
 
   var categoryitem = $(this);
-  console.log(searchterm);
   /* if the infotabs are present AND we're not on the menucard tab already, do that first */
   if ($('.restaurantinfotab_selected').length && $('.restaurantinfotab_selected a').attr('id').substr(8).toLowerCase() != 'menucard') {
     /* force MenuCard tab */
