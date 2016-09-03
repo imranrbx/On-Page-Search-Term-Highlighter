@@ -9,10 +9,10 @@
 	*/
 	function xss__highlight_form(){
 		?>
-		<div class="container fixed-top">
-		  <div class="panel panel-default">
+		<div class="top-header">
+		  <div class="panel panel-default search ">
 		    <div class="panel-heading">
-		      <form class="row searchTermForm" method="post" onsubmit="return searchPrompt(document.getElementById('keyword').value); return false;" >
+		      <form class="row searchTermForm top" method="post" onsubmit="return searchPrompt(document.getElementById('keyword').value); return false;" >
 		        <div class="col-xs-12">
 		          <div class="form-group">
 		            <label for="keyword">Search term:</label>
@@ -27,13 +27,13 @@
 		    </div>
 		  </div>
 		</div>
-		<script type="text/javascript" src=""></script>
 		<?php
 	}
 	function xs__enqueue_scripts(){
 		//wp_enqueue_script( 'mark-js-script','https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.0.1/jquery.mark.es6.js', array('jquery'), '1.8', true );
 		wp_enqueue_script( 'highlight-js',plugins_url().'/highlightsearch/js/highlight.js', array('jquery'), '1.8', true );
 		wp_enqueue_script( 'highlight-custom', plugins_url().'/highlightsearch/js/custom_script.js', array('highlight-js'), '1.0', true);
+		wp_enqueue_style("custom-plugin-style", plugins_url( ).'/highlightsearch/css/style.css' );
 	}
 	add_action('wp_enqueue_scripts','xs__enqueue_scripts');
 	add_shortcode( 'search_term', 'xss__highlight_form' );

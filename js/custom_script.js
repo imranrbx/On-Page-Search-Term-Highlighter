@@ -79,16 +79,16 @@ function scrollToFirstHit(counter) {
     if (next > highlightcounter ) next = 1
 
 
-    $('.searchnavigation .controls').fadeIn();
+    $('.searchtop-headerigation .controls').fadeIn();
 
     var click = '<a href="#" onclick="scrollToFirstHit('+prev+'); return false;"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-backward fa-stack-1x fa-inverse"></i></span></a>';
     click += '<span class="counter">'+counter + ' / ' + highlightcounter+'</span>';
     click += '<a href="#" onclick="scrollToFirstHit('+next+'); return false;"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-forward fa-stack-1x fa-inverse"></i></span></a>'
 
     //var clicktag = "<a href=\"#\" onclick=\"scrollToFirstHit(); return false;\"><i class=\"fa fa-backward\"></i> <span class=\"counter\"></span> <i class=\"fa fa-forward\"></i></a>";
-    $('.searchnavigation .controls').fadeIn().html(click)
+    $('.searchtop-headerigation .controls').fadeIn().html(click)
   } else {
-    $('.searchnavigation .controls').fadeOut();
+    $('.searchtop-headerigation .controls').fadeOut();
   }
 
   /* scroll to first found occurence */
@@ -110,12 +110,12 @@ function scrollToFirstHit(counter) {
 
       if (scrollToObject) {
         /* Scroll speed is based on absolute distance. And previous started scroll animation are stopped in their track */
-        scrollDistance = ($(window).scrollTop() - (scrollToObject.offset().top - $('#splash').height() - 15));
+        scrollDistance = ($(window).scrollTop() - (scrollToObject.offset().top - $('.top-header').height() - 125));
         if (scrollDistance < 0) scrollDistance = scrollDistance * -1;
         /* Don't use variable speed on distances exceeding 2000 pixels */
         scrollSpeed = scrollDistance < 2000 ? scrollDistance : 2000;
         $('html,body').stop( true, true ).animate(
-          {scrollTop: scrollToObject.offset().top - $('#splash').height() - 15},
+          {scrollTop: scrollToObject.offset().top - $('.top-header').height() - 125},
           scrollSpeed
         );
 
@@ -137,7 +137,7 @@ jQuery(document).ready(function($) {
     /* if empty, clear all highlights */
     if ($(this).val() == '') {
       clearHighlights();
-      $('.searchnavigation .controls').fadeOut();
+      $('.searchtop-headerigation .controls').fadeOut();
     }
   });
 
@@ -146,7 +146,7 @@ jQuery(document).ready(function($) {
     /* if empty, clear all highlights */
     if ($(this).val() == '') {
       clearHighlights();
-      $('.searchnavigation .controls').fadeOut();
+      $('.searchtop-headerigation .controls').fadeOut();
     }
   });
 
@@ -157,7 +157,27 @@ jQuery(function($){
   var $button = $form.find("button[name='perform']");
   var $input = $form.find("input[name='keyword']");
   $button.on("click", function() {
-      $('main').removeHighlight().highlight($input.val());
+
+      $('main').highlight($input.val());
   });
   
+});
+jQuery(function($) {
+var headerTop = $('.top-header').offset().top;
+ 
+var stickytopHeaderTop = function(){
+var scrollTop = $(window).scrollTop();
+      
+if (scrollTop > headerTop) { 
+    $('.top-header').addClass('sticky');
+} else {
+    $('.top-header').removeClass('sticky'); 
+}
+};
+ 
+stickytopHeaderTop();
+ 
+$(window).scroll(function() {
+  stickytopHeaderTop();
+});
 });
